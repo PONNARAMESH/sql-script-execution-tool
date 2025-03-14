@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css,scss}\"",
+    "prepare": "husky"
   },
   "dependencies": {
     "@mantine/core": "^7.17.1",
@@ -28,6 +30,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.2.2",
+    "husky": "^9.1.7",
     "typescript": "^5"
   }
 }

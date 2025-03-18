@@ -166,3 +166,8 @@ a.secondary {
     filter: invert();
   }
 }
+
+/** my custom styles **/
+.mantine-Textarea-input {
+  height: clamp(10rem, 30vh, 20rem);
+}

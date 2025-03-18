@@ -46,7 +46,7 @@ export const Home = () => {
           </Tabs.Tab> */}
         </Tabs.List>
 
-        <Tabs.Panel value="gallery">
+        <Tabs.Panel value="SQL">
           {/* { SqlEditor is build on top of AceEditor(https://securingsincity.github.io/react-ace/)} */}
           <SqlEditor
             defaultValue={displaySql}
@@ -55,7 +55,7 @@ export const Home = () => {
             height="300px"
             // isShowHeader={true}
             // mode={"mysql"}
-            theme="monokai"
+            // theme="monokai"
             // debounceChangePeriod={1000}
             // readOnly={true}
             minLines={1}

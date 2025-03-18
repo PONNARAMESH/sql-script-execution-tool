@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { Button, Tabs } from "@mantine/core";
 import "./page.css";
@@ -13,7 +14,7 @@ import { useState } from "react";
 
 export const Home = () => {
   const [displaySql, setDisplaySql] = useState("Select * from customer");
-  const [copyTips, setCopyTips] = useState("");
+  const [, setCopyTips] = useState("");
   const [isSqlValid, setIsSqlValid] = useState<boolean>(false);
   const [annotations, setAnnotations] = useState<any>([]);
 

@@ -9,7 +9,7 @@ export const Timer = () => {
     if (!start) return;
     const timer = setTimeout(() => {
       setCounter(counter + 1);
-    }, 100);
+    }, 1000);
     return () => {
       clearTimeout(timer);
     };

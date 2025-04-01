@@ -2,6 +2,7 @@
 "use client";
 import { Button, Tabs } from "@mantine/core";
 import "./page.css";
+import "./globals.css";
 
 import {
   SqlEditor,
@@ -11,8 +12,9 @@ import {
 } from "react-sql-editor";
 import "regenerator-runtime/runtime";
 import { useState } from "react";
+import { Timer } from "./timer";
 
-export const Home = () => {
+const Home = () => {
   const [displaySql, setDisplaySql] = useState("Select * from customer");
   const [, setCopyTips] = useState("");
   const [isSqlValid, setIsSqlValid] = useState<boolean>(false);
@@ -37,7 +39,8 @@ export const Home = () => {
     return input.split(splitChar);
   };
   return (
-    <>
+    <div className="app">
+      <Timer />
       <Tabs defaultValue="SQL">
         <Tabs.List>
           <Tabs.Tab value="SQL">SQL</Tabs.Tab>
@@ -110,7 +113,7 @@ export const Home = () => {
           Button
         </Button>
       </div>
-    </>
+    </div>
   );
 };
 export default Home;

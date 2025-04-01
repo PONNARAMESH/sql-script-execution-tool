@@ -1,6 +1,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --blue-bg-color: #3e6197;
+  --blue-bg-contrast-font-color: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {

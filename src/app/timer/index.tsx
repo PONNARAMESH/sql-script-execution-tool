@@ -47,10 +47,11 @@ export const Timer = () => {
 
   return (
     <div className={styles.timerContainer}>
-      <h1>Hi form TIMER!</h1>
+      <h1>TIMER</h1>
       <pre>
         <span>Format(HH:MM:SS)</span> : {`${hours}:${minutes}:${seconds}`}
       </pre>
+      <br />
       <div className={styles.buttonsContainer}>
         <button onClick={handleStart}>Start / Resume</button>
         <button onClick={handlePause}>Pause</button>

@@ -7,7 +7,7 @@ import {
   formatSql,
   getValidateSql,
   SqlErrorTypeEnum,
-  SqlChangedCallbackData
+  SqlChangedCallbackData,
 } from "react-sql-editor";
 import "regenerator-runtime/runtime";
 import { useState } from "react";
@@ -45,7 +45,11 @@ export const CustomSqlQueryEditor = () => {
         const res2 = formatSql({ value: sqlStatement });
         const res = getValidateSql({ value: res2?.value });
         // console.log("##res2: ", res);
-        if (!res?.isSqlValid && res?.validateSqlResult?.sqlErrorType !== SqlErrorTypeEnum?.validateError) {
+        if (
+          !res?.isSqlValid &&
+          res?.validateSqlResult?.sqlErrorType !==
+            SqlErrorTypeEnum?.validateError
+        ) {
           annotations.push({
             row: index,
             column: 0,
@@ -117,5 +121,5 @@ export const CustomSqlQueryEditor = () => {
         </Button>
       </div>
     </div>
-  )
-}
+  );
+};

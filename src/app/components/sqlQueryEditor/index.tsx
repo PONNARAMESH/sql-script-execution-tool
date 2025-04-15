@@ -65,6 +65,33 @@ export const CustomSqlQueryEditor = () => {
     setIsSqlValid(!!annotations?.length ? false : true);
   };
 
+  function getSelectionText() {
+    let text = "";
+    const activeEl: any = document.activeElement;
+    const activeElTagName = activeEl ? activeEl.tagName.toLowerCase() : null;
+
+    if (
+      activeElTagName == "textarea" ||
+      (activeElTagName == "input" &&
+        /^(?:text|search|password|tel|url)$/i.test(activeEl.type) &&
+        typeof activeEl.selectionStart == "number")
+    ) {
+      const startIndex = !activeEl.selectionStart
+        ? activeEl.selectionStart
+        : activeEl.selectionStart - 1;
+      text = activeEl.value.slice(startIndex, activeEl.selectionEnd);
+    } else if (window.getSelection) {
+      text = window?.getSelection()?.toString() || "";
+    }
+
+    return text;
+  }
+
+  const handleSelect = () => {
+    const querySelected = getSelectionText();
+    console.log("##onSelection-change: ", querySelected);
+  };
+
   return (
     <div className="SqlQueryEditorContainer">
       <Tabs defaultValue="SQL">
@@ -78,6 +105,8 @@ export const CustomSqlQueryEditor = () => {
         <Tabs.Panel value="SQL">
           {/* { SqlEditor is build on top of AceEditor(https://securingsincity.github.io/react-ace/)} */}
           <SqlEditor
+            // onSelection={handleSelect}
+            onSelectionChange={handleSelect}
             defaultValue={displaySql}
             title="Sql Editor"
             width="auto"

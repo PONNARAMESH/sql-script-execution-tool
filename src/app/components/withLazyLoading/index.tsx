@@ -30,4 +30,3 @@ export const withLazyLoading = (componentFilePath: string) => {
   };
 };
 /* eslint-enable */
-

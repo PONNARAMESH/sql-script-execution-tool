@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toast Component renders correctly 1`] = `
+<div>
+  <div
+    class="toast successToastBGColor"
+    data-testid="toastMessage"
+    role="menuitem"
+    tabindex="0"
+  >
+    <div />
+    <p
+      class="toastMessage"
+    >
+      Success!
+    </p>
+    <button
+      class="dismissBtn"
+      data-testid="close-icon-toast1"
+    >
+      <div />
+    </button>
+    <div
+      class="toastProgress"
+    >
+      <div
+        class="toastProgressBar success"
+      />
+    </div>
+  </div>
+</div>
+`;

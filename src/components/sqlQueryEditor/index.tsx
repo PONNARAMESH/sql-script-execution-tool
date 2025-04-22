@@ -1,5 +1,5 @@
 "use client";
-import { Button, Tabs } from "@mantine/core";
+import { Button, ScrollArea, Table, Tabs } from "@mantine/core";
 
 import {
   SqlEditor,
@@ -12,6 +12,8 @@ import {
 import "regenerator-runtime/runtime";
 import { useState } from "react";
 import { Ace } from "ace-builds";
+import { getQueryResult } from "@/services/clientServices";
+import { TObject } from "@/lib/types";
 
 export const CustomSqlQueryEditor = () => {
   const [displaySql, setDisplaySql] = useState("Select * from customer");
@@ -19,6 +21,7 @@ export const CustomSqlQueryEditor = () => {
   const [isSqlValid, setIsSqlValid] = useState<boolean>(false);
   /* eslint-disable   @typescript-eslint/no-explicit-any */
   const [annotations, setAnnotations] = useState<Ace.Annotation[]>([]);
+  const [queryResult, setQueryResult] = useState<Array<TObject>>([]);
 
   const executeSqlQuery = () => {
     if (!displaySql) {
@@ -29,10 +32,22 @@ export const CustomSqlQueryEditor = () => {
     }
     const res = splitTheString(displaySql);
     // console.log("##executed-queries: ", res);
-    alert(
-      `Successfully executed the below queries!\n` +
-        res.map((q) => " - " + q).join("\n"),
-    );
+    // alert(
+    //   `Successfully executed the below queries!\n` +
+    //     res.map((q) => " - " + q).join("\n"),
+    // );
+    getQueryResult(res)
+      .then((res) => {
+        if (res && Array.isArray(res)) {
+          console.log("##res: ", res);
+          setQueryResult(res);
+        } else {
+          setQueryResult([]);
+        }
+      })
+      .catch((error) => {
+        console.log("##error: ", error);
+      });
   };
   const splitTheString = (input: string, splitChar = ";") => {
     if (!input) return [""];
@@ -92,6 +107,12 @@ export const CustomSqlQueryEditor = () => {
     console.log("##onSelection-change: ", querySelected);
   };
 
+  const getDynamicHeaders = (data: TObject) => {
+    return Object.keys(data);
+  };
+
+  console.log("##queryResult: ", queryResult);
+  const headers = getDynamicHeaders(queryResult[0] || {});
   return (
     <div className="SqlQueryEditorContainer">
       <Tabs defaultValue="SQL">
@@ -149,6 +170,35 @@ export const CustomSqlQueryEditor = () => {
           Button
         </Button>
       </div>
+      {!!queryResult.length && (
+        <ScrollArea
+          h={300}
+          // onScrollPositionChange={({ y }) => setScrolled(y !== 0)}
+        >
+          <Table miw={700}>
+            <Table.Thead
+            // className={cx(classes.header, { [classes.scrolled]: scrolled })}
+            >
+              <Table.Tr>
+                {headers.map((name) => {
+                  return <Table.Th>{name}</Table.Th>;
+                })}
+              </Table.Tr>
+            </Table.Thead>
+            <Table.Tbody>
+              {(queryResult || []).map((obj, key) => {
+                return (
+                  <Table.Tr key={obj.id}>
+                    {headers.map((key) => (
+                      <Table.Td>{obj[key] || ""}</Table.Td>
+                    ))}
+                  </Table.Tr>
+                );
+              })}
+            </Table.Tbody>
+          </Table>
+        </ScrollArea>
+      )}
     </div>
   );
 };

@@ -1,0 +1,39 @@
+.toastsContainer {
+  display: flex;
+  flex-direction: column-reverse;
+  row-gap: 12px;
+  position: fixed;
+  z-index: 9999;
+}
+
+.topRight {
+  top: 1rem;
+  right: 1rem;
+}
+
+.topLeft {
+  top: 1rem;
+  left: 1rem;
+}
+
+.topCenter {
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bottomLeft {
+  bottom: 1rem;
+  left: 1rem;
+}
+
+.bottomCenter {
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bottomRight {
+  bottom: 1rem;
+  right: 1rem;
+}

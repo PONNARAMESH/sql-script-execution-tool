@@ -1,0 +1,113 @@
+{
+  "uuid": "ef9aa198-4b7b-468d-9f80-f02fed5dd478",
+  "lastMigration": 33,
+  "name": "SqlDbCord",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 6003,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "426e1684-1e65-4298-abd6-22c724f42015",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "query",
+      "responses": [
+        {
+          "uuid": "b88c6f6a-5643-47db-a9fb-babab6b4736d",
+          "body": "[\n  {\n    \"id\": 1,\n    \"name\": \"Alice\",\n    \"dob\": \"1997-02-14\",\n    \"phoneNumber\": \"98765432120\",\n    \"email\": \"alice@gmail.com\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Almond\",\n    \"dob\": \"1995-02-10\",\n    \"phoneNumber\": \"98765432321\",\n    \"email\": \"almond@gmail.com\"\n  },\n  {\n    \"id\": 3,\n    \"name\": \"Anju\",\n    \"dob\": \"1993-02-16\",\n    \"phoneNumber\": \"98765432132\",\n    \"email\": \"anju@gmail.com\"\n  },\n  {\n    \"id\": 4,\n    \"name\": \"Balu\",\n    \"dob\": \"1990-06-20\",\n    \"phoneNumber\": \"98765432122\",\n    \"email\": \"balu@gmail.com\"\n  },\n  {\n    \"id\": 5,\n    \"name\": \"Candy\",\n    \"dob\": \"1990-02-14\",\n    \"phoneNumber\": \"98765432111\",\n    \"email\": \"candy@gmail.com\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "6b1af7cd-66a3-4d7b-b6c0-e94b5d9be3df",
+          "body": "[\n  {\n    \"txnId\": \"TX12345678900\",\n    \"senderPhoneNum\": \"9876543211\",\n    \"receiverPhoneNum\": \"8765432100\",\n    \"amount\": \"10000\",\n    \"creationDate\": \"2020-10-11T14:20:20:434Z\"\n  },\n  {\n    \"txnId\": \"TX12345678901\",\n    \"senderPhoneNum\": \"9876543211\",\n    \"receiverPhoneNum\": \"8765432111\",\n    \"amount\": \"22000\",\n    \"creationDate\": \"2020-11-11T14:20:20:434Z\"\n  },\n  {\n    \"txnId\": \"TX12345678902\",\n    \"senderPhoneNum\": \"9876543211\",\n    \"receiverPhoneNum\": \"8765432122\",\n    \"amount\": \"3000\",\n    \"creationDate\": \"2020-10-11T14:20:20:434Z\"\n  },\n  {\n    \"txnId\": \"TX12345678903\",\n    \"senderPhoneNum\": \"8765432100\",\n    \"receiverPhoneNum\": \"9876543211\",\n    \"amount\": \"12000\",\n    \"creationDate\": \"2020-11-15T14:20:20:434Z\"\n  },\n  {\n    \"txnId\": \"TX123456789004\",\n    \"senderPhoneNum\": \"8765432100\",\n    \"receiverPhoneNum\": \"8765432122\",\n    \"amount\": \"5500\",\n    \"creationDate\": \"2020-10-11T14:20:20:434Z\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": "RANDOM",
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "426e1684-1e65-4298-abd6-22c724f42015"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With, channel, messageId, authToken, region, action"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}

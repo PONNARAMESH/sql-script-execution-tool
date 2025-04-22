@@ -1,0 +1,117 @@
+/* Toast */
+.toast {
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  position: relative;
+  width: 20rem;
+  height: auto;
+  min-height: 5rem;
+  max-height: 6rem;
+  overflow: hidden;
+}
+
+.toastMessage {
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-left: 0.75rem;
+
+  width: 80%;
+}
+
+.dismissBtn {
+  cursor: pointer;
+  border: none;
+  background: none;
+  margin-left: auto;
+}
+
+.closeIcon {
+  color: #ffffff;
+}
+
+.successToastBGColor {
+  background-color: var(--toast-success-bg-color);
+  > .toastMessage {
+    color: var(--toast-success-font-color);
+  }
+}
+
+.infoToastBGColor {
+  background-color: var(--toast-info-bg-color);
+  > .toastMessage {
+    color: var(--toast-info-font-color);
+  }
+}
+
+.warningToastBGColor {
+  background-color: var(--toast-warning-bg-color);
+  > .toastMessage {
+    color: var(--toast-warning-font-color);
+  }
+}
+
+.errorToastBGColor {
+  background-color: var(--toast-error-bg-color);
+  > .toastMessage {
+    color: var(--toast-error-font-color);
+  }
+}
+
+.successIcon {
+  color: var(--toast-success-font-color);
+}
+
+.infoIcon {
+  color: var(--toast-info-font-color);
+}
+
+.warningIcon {
+  color: var(--toast-warning-font-color);
+}
+
+.errorIcon {
+  color: var(--toast-error-font-color);
+}
+
+.toastProgress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.25rem;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.toastProgressBar {
+  height: 100%;
+  animation: progress-bar 4s linear forwards;
+}
+
+.toastProgressBar.success {
+  background-color: var(--toast-success-font-color);
+}
+
+.toastProgressBar.info {
+  background-color: var(--toast-info-font-color);
+}
+
+.toastProgressBar.warning {
+  background-color: var(--toast-warning-font-color);
+}
+
+.toastProgressBar.error {
+  background-color: var(--toast-error-font-color);
+}
+
+@keyframes progress-bar {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}

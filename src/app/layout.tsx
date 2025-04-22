@@ -1,8 +1,9 @@
 import "@mantine/core/styles.css";
 
 import { ColorSchemeScript, mantineHtmlProps } from "@mantine/core";
-import GlobalContext from "./context/appContext";
-import { PrivateLayout } from "./components/privateLayout";
+import GlobalContext from "../context/appContext";
+import { PrivateLayout } from "../components/privateLayout";
+import FetchAPIInterceptor from "../components/fetchAPIInterceptor";
 
 export const metadata = {
   title: "Sql script execution tool",
@@ -22,6 +23,7 @@ export default function RootLayout({
       </head>
       <body>
         <GlobalContext>
+          <FetchAPIInterceptor />
           <PrivateLayout>{children}</PrivateLayout>
         </GlobalContext>
       </body>

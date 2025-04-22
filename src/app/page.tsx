@@ -3,7 +3,7 @@ import "./globals.css";
 
 import "regenerator-runtime/runtime";
 // import { Timer } from "./components/timer";
-import { CustomSqlQueryEditor } from "./components/sqlQueryEditor";
+import { CustomSqlQueryEditor } from "../components/sqlQueryEditor";
 
 const Home = () => {
   return (
